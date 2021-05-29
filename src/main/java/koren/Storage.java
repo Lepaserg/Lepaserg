@@ -35,10 +35,10 @@ public class Storage {
         }
     }
 
-    public List<List<Author>> getAllAuthor() {
-        List<List<Author>> aut = new ArrayList<>();
+    public List<Author> getAllAuthor() {
+        List<Author> aut = new ArrayList<>();
         for (Book bk: books) {
-            aut.add(bk.getAuthor());
+            aut.addAll(bk.getAuthor());
         }
         return aut;
     }
@@ -56,4 +56,5 @@ public class Storage {
 
         return filter;
     }
+
 }
