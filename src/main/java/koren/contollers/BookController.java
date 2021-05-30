@@ -38,7 +38,7 @@ public class BookController {
         bookRepository.save(book);
     }
 
-    // поиск книгу по названию и по имени автора
+    // поиск книгу по параметрам
     @GetMapping("/search")
     @ResponseStatus(HttpStatus.OK)
     public List<Book> searchByParams(@RequestParam(required=false) String title, @RequestParam(required=false) String authorName, @RequestParam(required=false) String heroName, @RequestParam(required=false) String genreName){
