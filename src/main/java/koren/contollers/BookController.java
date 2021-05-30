@@ -1,7 +1,7 @@
 package koren.contollers;
 
-import koren.Storage;
 import koren.entity.Book;
+import koren.repository.BookRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,28 +10,32 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 public class BookController {
-    private final Storage storage;
+    private final BookRepository bookRepository;
 
-    public BookController(Storage storage) {
-        this.storage = storage;
+    // конструктор
+    public BookController(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
+    // добавление книги
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addBook(@RequestBody Book book){
-        storage.add(book);
+        bookRepository.save(book);
     }
 
+    // получение полного списка книг
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Book> getAll(){
-        return storage.getAll();
+        return bookRepository.findAll();
     }
 
+    // редактирование книги
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public void putBook(@RequestBody Book book){
-        storage.put(book);
+        bookRepository.updateBook(book);
     }
 
 }
