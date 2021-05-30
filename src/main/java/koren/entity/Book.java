@@ -4,10 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Getter
@@ -17,13 +15,27 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Book {
     @Id
-    @GeneratedValue
     private Long id;
-    private String name;
+    private String title;
     private String year;
-    private int numberOfPages;
-//    private List<Hero> heroes;
-//    private List<Author> authors;
-//    private List<Genre> genres;
+    private int count;
+    @ManyToMany
+    @JoinTable(
+            name = "book_author",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id"))
+    private List<Author> authors;
+    @ManyToMany
+    @JoinTable(
+            name = "book_hero",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "hero_id"))
+    private List<Hero> heroes;
+    @ManyToMany
+    @JoinTable(
+            name = "book_genre",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    private List<Genre> genres;
 
 }

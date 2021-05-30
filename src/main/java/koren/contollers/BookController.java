@@ -35,7 +35,14 @@ public class BookController {
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public void putBook(@RequestBody Book book){
-        bookRepository.updateBook(book);
+        bookRepository.save(book);
+    }
+
+    // поиск книгу по названию и по имени автора
+    @GetMapping("/search")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Book> searchByParams(@RequestParam(required=false) String title, @RequestParam(required=false) String authorName, @RequestParam(required=false) String heroName, @RequestParam(required=false) String genreName){
+        return bookRepository.findByParams(title, authorName, heroName, genreName);
     }
 
 }
