@@ -40,7 +40,7 @@ public class AuthorController {
     // поиск автора по имени
     @GetMapping("/search")
     public List<Author> getAuthorByName(@RequestParam String name){
-        return authorRepository.findAuthorsByFio(name);
+        return authorRepository.findAuthorsByName(name);
     }
 
     // удаление автора по id

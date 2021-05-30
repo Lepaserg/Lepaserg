@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AuthorRepository extends CrudRepository<Author, Long> {
     List<Author> findAll();
-    List<Author> findAuthorsByFio(String fio);
+    List<Author> findAuthorsByName(String name);
+
 }

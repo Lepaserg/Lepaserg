@@ -8,4 +8,5 @@ import java.util.List;
 public interface HeroRepository extends CrudRepository<Hero, Long> {
     List<Hero> findAll();
     List<Hero> findHeroesByName(String name);
+
 }

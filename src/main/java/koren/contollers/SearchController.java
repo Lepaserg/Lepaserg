@@ -9,11 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/search")
 public class SearchController {
-    private final Storage storage;
 
-    public SearchController(Storage storage) {
-        this.storage = storage;
-    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)

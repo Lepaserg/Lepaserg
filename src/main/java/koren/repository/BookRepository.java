@@ -8,4 +8,5 @@ import java.util.List;
 public interface BookRepository extends CrudRepository {
     List<Book> findAll();
     Book updateBook(Book book);
+
 }

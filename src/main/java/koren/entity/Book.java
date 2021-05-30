@@ -5,9 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
+
 
 @Getter
 @Setter
@@ -16,12 +17,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Book {
     @Id
-//    @GeneratedValue
+    @GeneratedValue
     private Long id;
-    private String title;
+    private String name;
     private String year;
     private int numberOfPages;
-    private List<Hero> heroes;
-    private List<Author> authors;
-    private List<Genre> genres;
+//    private List<Hero> heroes;
+//    private List<Author> authors;
+//    private List<Genre> genres;
+
 }

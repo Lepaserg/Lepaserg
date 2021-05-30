@@ -12,6 +12,7 @@ import java.util.List;
 public class HeroController {
     private final HeroRepository heroRepository;
 
+    // конструктор
     public HeroController(HeroRepository heroRepository) {
         this.heroRepository = heroRepository;
     }
